@@ -13,8 +13,8 @@ from exchange import (
 class CurrencyExchangeTest(unittest.TestCase):
     @pytest.mark.task(taskno=1)
     def test_exchange_money(self):
-        test_data = [(100000, 0.8), (700000, 10.0)]
-        result_data = [125000, 70000]
+        test_data = [(100000, 0.8), (700000, 10.0), (100, 2)]
+        result_data = [125000, 70000, 50]
 
         for variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):
             budget, exchange_rate = params
@@ -34,8 +34,8 @@ class CurrencyExchangeTest(unittest.TestCase):
 
     @pytest.mark.task(taskno=2)
     def test_get_change(self):
-        test_data = [(463000, 5000), (1250, 120), (15000, 1380)]
-        result_data = [458000, 1130, 13620]
+        test_data = [(463000, 5000), (1250, 120), (15000, 1380), (100, 50)]
+        result_data = [458000, 1130, 13620, 50]
 
         for variant, (params, expected) in enumerate(zip(test_data, result_data), start=1):
             budget, exchanging_value = params

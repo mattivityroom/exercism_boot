@@ -6,6 +6,7 @@ import pytest
 # decode that they need to create and title their constants and functions in a specific way.
 try:
     from lasagna import (EXPECTED_BAKE_TIME,
+                        PREPARERATION_TIME,
                         bake_time_remaining,
                         preparation_time_in_minutes,
                         elapsed_time_in_minutes)
@@ -33,6 +34,10 @@ class LasagnaTest(unittest.TestCase):
     def test_EXPECTED_BAKE_TIME(self):
         failure_msg = 'Expected a constant of EXPECTED_BAKE_TIME with a value of 40.'
         self.assertEqual(EXPECTED_BAKE_TIME, 40, msg=failure_msg)
+
+    def test_PREPARATION_TIME(self):
+        failure_msg = 'Expected a constant of PREPARATION_TIME with a value of 2.'
+        self.assertEqual(PREPARERATION_TIME, 2, msg=failure_msg)
 
     @pytest.mark.task(taskno=2)
     def test_bake_time_remaining(self):

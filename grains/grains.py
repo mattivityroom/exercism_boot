@@ -1,10 +1,9 @@
+LIMIT = 64
+
 def square(number):
-    if ( number <= 0 or number > 64 ):
+    if ( number <= 0 or number > LIMIT ):
         raise ValueError("square must be between 1 and 64")
     return 2 ** (number-1)
 
 def total():
-    total = 0
-    for i in range (64):
-        total += square(i+1)
-    return total
+    return 2 ** 64 - 1

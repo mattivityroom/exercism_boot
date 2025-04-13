@@ -53,6 +53,9 @@ class IsoscelesTriangleTest(unittest.TestCase):
     def test_third_triangle_inequality_violation(self):
         self.assertIs(isosceles([3, 1, 1]), False)
 
+    def test_fourthtriangle_inequality_violation(self):
+        self.assertIs(isosceles([7, 3, 2]), False)
+
     def test_sides_may_be_floats(self):
         self.assertIs(isosceles([0.5, 0.4, 0.5]), True)
 

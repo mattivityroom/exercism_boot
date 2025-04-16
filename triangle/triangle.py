@@ -1,23 +1,12 @@
 def is_violation(sides):
-    return False if sides[0] + sides[1] > sides[2] and \
-            sides[0] + sides[2] > sides[1] and \
-            sides[1] + sides[2] > sides[0] \
-        else True
+    sides = sorted(sides)
+    return not sum(sides[:2]) > sides[2] and len(sides) < 4
 
 def equilateral(sides):
-    if 0 in sides: return False
-    return True if (sides[0] == sides[1] == sides[2]) else False
-
+    return not is_violation(sides) and len(set(sides)) == 1
 
 def isosceles(sides):
-    if not is_violation(sides):
-        return (sides[0] == sides[1] or sides[0] == sides[2] or sides[1] == sides[2])
-    else:
-        return False
+    return not is_violation(sides) and len(set(sides)) <= 2
 
 def scalene(sides):
-    # return not isosceles(sides) and not equilateral(sides)
-    if not is_violation(sides):
-        return not isosceles(sides) and not equilateral(sides)
-    else:
-        return False
+    return not is_violation(sides) and len(set(sides)) == 3

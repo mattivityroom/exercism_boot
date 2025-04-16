@@ -81,3 +81,6 @@ class ScaleneTriangleTest(unittest.TestCase):
 
     def test_sides_may_be_floats(self):
         self.assertIs(scalene([0.5, 0.4, 0.6]), True)
+
+    def test_not_triangle(self):
+        self.assertIs(scalene([4,4,4,4]), False)

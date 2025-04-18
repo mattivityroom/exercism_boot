@@ -64,11 +64,18 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
 
     actual_power = temperature * neutrons_produced_per_second
     low_limit = 0.90 * threshold
-    normal_limit = 0.10 * threshold
+    normal_limit = 1.10 * threshold
 
-    if actual_power > threshold + normal_limit:
-        return 'DANGER'
     if actual_power < low_limit:
         return 'LOW'
+    if low_limit <= actual_power <= normal_limit:
+        return 'NORMAL'
+    return 'DANGER'
 
-    return 'NORMAL'
+
+    # if actual_power > threshold + normal_limit:
+    #     return 'DANGER'
+    # if actual_power < low_limit:
+    #     return 'LOW'
+
+    # return 'NORMAL'
